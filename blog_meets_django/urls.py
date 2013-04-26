@@ -19,5 +19,5 @@ urlpatterns = patterns('',
     url(r'^$', 'blogengine.views.getPosts'),
     url(r'^(?P<selected_page>\d+)/?$', 'blogengine.views.getPosts'),
     # Blog posts
-    url(r'^(?P<postSlug>[-a-zA-Z0-9]+)/?$', 'blogengine.views.getPost'),
+    url(r'^\d{4}/\d{1,2}/(?P<postSlug>[-a-zA-Z0-9]+)/?$', 'blogengine.views.getPost'),
 )
