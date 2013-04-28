@@ -20,4 +20,7 @@ urlpatterns = patterns('',
     url(r'^(?P<selected_page>\d+)/?$', 'blogengine.views.getPosts'),
     # Blog posts
     url(r'^\d{4}/\d{1,2}/(?P<postSlug>[-a-zA-Z0-9]+)/?$', 'blogengine.views.getPost'),
+
+    # Flat pages
+    url(r'', include('django.contrib.flatpages.urls')),
 )

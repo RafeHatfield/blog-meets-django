@@ -127,7 +127,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'south',
     'blogengine',
-
+    'django.contrib.flatpages',
     'fts',
 )
 
