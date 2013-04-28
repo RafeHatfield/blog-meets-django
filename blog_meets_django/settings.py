@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'blogengine',
     'django.contrib.flatpages',
     'django.contrib.comments',
+    'django.contrib.syndication',
     'fts',
 )
 
