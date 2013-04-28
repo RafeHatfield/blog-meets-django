@@ -18,10 +18,13 @@ urlpatterns = patterns('',
     # Home page
     url(r'^$', 'blogengine.views.getPosts'),
     url(r'^(?P<selected_page>\d+)/?$', 'blogengine.views.getPosts'),
-    
+
     # Blog posts
     url(r'^\d{4}/\d{1,2}/(?P<postSlug>[-a-zA-Z0-9]+)/?$', 'blogengine.views.getPost'),
 
+    # Comments
+    url(r'^comments/', include('django.contrib.comments.urls')),
+    
     # Categories
     url(r'^categories/(?P<categorySlug>\w+)/?$', 'blogengine.views.getCategory'),
     url(r'^categories/(?P<categorySlug>\w+)/(?P<selected_page>\d+)/?$', 'blogengine.views.getCategory'),

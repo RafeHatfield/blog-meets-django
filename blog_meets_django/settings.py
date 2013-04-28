@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'south',
     'blogengine',
     'django.contrib.flatpages',
+    'django.contrib.comments',
     'fts',
 )
 
