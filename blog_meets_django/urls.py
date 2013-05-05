@@ -1,3 +1,5 @@
+from django.views.generic import ListView
+from blogengine.models import Category
 from django.conf.urls import patterns, include, url
 from blogengine.views import PostsFeed
 
@@ -27,6 +29,9 @@ urlpatterns = patterns('',
     url(r'^comments/', include('django.contrib.comments.urls')),
     
     # Categories
+    url(r'^categories/?$', ListView.as_view(
+        model=Category,
+    )),
     url(r'^categories/(?P<categorySlug>\w+)/?$', 'blogengine.views.getCategory'),
     url(r'^categories/(?P<categorySlug>\w+)/(?P<selected_page>\d+)/?$', 'blogengine.views.getCategory'),
 
