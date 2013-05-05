@@ -3,3 +3,14 @@
         <title>My Django Blog</title>
     </head>
     <body>
+        <div id="main">
+            <h1>Rafe's (Heavily) Under Construction Blog</h1>
+            <a href="/feeds/posts/">rss</a>
+            <ul id="pageList">
+                <li><a href="/">Home</a></li>
+                {% load flatpages %}
+                {% get_flatpages as flatpages %}
+                {% for flatpage in flatpages %}
+                <li><a href="{{ flatpage.url }}">{{ flatpage.title }}</a></li>
+                {% endfor %}
+            </ul>
