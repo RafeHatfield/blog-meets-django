@@ -1,26 +1,75 @@
 {% include 'header.html' %}
-    {% load comments %}
-    {% for post in posts %}
-    <div class="published">{{ post.pub_date }}</div>
-    <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-    {{ post.text }}
-    <h3>By {{ post.author.first_name }} {{ post.author.last_name }}</h3>
-    <h3>Categories: {% for category in post.categories.all %} {{ category.title }} {% endfor %}</h3>
-    {% get_comment_count for post as comment_count %}
-    <h3>Comments: {{ comment_count }}</h3>
-    <ol>
-    {% get_comment_list for post as comments %}
-    {% for comment in comments %}
-    <li>{{ comment }}</li>
-    {% endfor %}
-    </ol>
-    {% render_comment_form for post %}
-    {% endfor %}
-    <br />
-    {% if page.has_previous %}
-    <a href="/{{ page.previous_page_number }}/">Previous Page</a>
-    {% endif %}
-    {% if page.has_next %}
-    <a href="/{{ page.next_page_number }}/">Next Page</a>
-    {% endif %}
+    <div class="row main-content">
+        <div class="offset1 span6 zone-content">
+
+            {% load comments %}
+            {% for post in posts %}
+            <article>
+
+                <div class="published">{{ post.pub_date }}</div>
+                <h1>{{ post.title }}</h1>
+                <h3>Categories: {% for category in post.categories.all %} {{ category.title }} {% endfor %}</h3>
+                <div>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales cursus fringilla. 
+                    </p>
+                    <p>{{ post.text }}</p>
+
+                </div>
+            </article>
+
+            <div class="clearfix"></div>
+
+            <div id="comments">
+               {% get_comment_count for post as comment_count %}
+                <h2 class="comment-count">Comments: {{ comment_count }}</h2>
+
+                <ul class="comments">
+
+                    <li>
+                        <article class="comment" id="comment-1">
+                            <header>
+                                <h4>
+                                    <span class="who">
+                                        <a href="#" rel="nofollow">Alexander</a>
+                                    </span>
+                                    
+                                    <span class="when">
+                                        said <time datetime="2013-04-03 16:05:04"><a href="#comment-1">4 days ago</a></time>
+                                    </span>
+                                </h4>
+                            </header>
+                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in molestie velit. Quisque sit amet quam at lacus tincidunt aliquet in ac enim. Cras non libero vitae lorem dictum faucibus. Vivamus eu eros ac felis vulputate fermentum at vitae mauris. Duis adipiscing elit sed ipsum ultricies condimentum sit amet in quam. </p>
+                        </article>
+                    </li>
+                    {% get_comment_list for post as comments %}
+                    {% for comment in comments %}
+                    <li>
+                        <article class="comment" id="comment-1">
+                            <header>
+                                <h4>
+                                    <span class="who">
+                                        <a href="#" rel="nofollow">Alexander</a>
+                                    </span>
+                                    
+                                    <span class="when">
+                                        said <time datetime="2013-04-03 16:05:04"><a href="#comment-1">4 days ago</a></time>
+                                    </span>
+                                </h4>
+                            </header>
+                                    
+                            <p class="text">{{ comment }}</p>
+                        </article>
+                    </li>
+                    {% endfor %}     
+                </ul>
+            </div>
+
+            {% render_comment_form for post %}
+            {% endfor %}
+
+        </div>
+
+    </div>
+
 {% include 'footer.html' %}
