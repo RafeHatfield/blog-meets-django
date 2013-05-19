@@ -11,6 +11,7 @@
 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Poiret+One|PT+Serif|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Sarina|Oleo+Script+Swash+Caps|Merriweather+Sans:400,700|Berkshire+Swash' rel='stylesheet' type='text/css'>
     {% load staticfiles %}
     <!-- Stylesheets -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -29,11 +30,16 @@
       <script src="js/html5shiv.js"></script>
     <![endif]-->
 </head>
-
+<!-- 
+font-family: 'Sarina', cursive;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Merriweather Sans', sans-serif;
+font-family: 'Berkshire Swash', cursive;
+ -->
 <div class="container">
 
     <div class="masthead clearfix">
-        <a href="index.html"><img id="logo" src="img/wwlogo@2x.png" alt="Wise Words"></a>
+        <div style="font-family: Sarina; text-decoration: none; font-size: 40px; width:320px; display:inline; margin-top:50px; position: absolute">Rafe Hatfield</div>
         <ul id="nav" class="nav ww-nav pull-right hidden-phone">
             <li class="active"><a href="/">Blog</a></li>
             {% load flatpages %}

@@ -1,11 +1,27 @@
 from django.views.generic import ListView
-from blogengine.models import Category
 from django.conf.urls import patterns, include, url
+from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+from blogengine.models import Post, Category
 from blogengine.views import PostsFeed
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+post_dict = {
+    'queryset': Post.objects.all(),
+    'date_field': 'pub_date',
+}
+
+category_dict = {
+    'queryset': Category.objects.all(),
+}
+
+sitemaps = {
+    'flatpages': FlatPageSitemap,
+    'blog': GenericSitemap(post_dict, priority=0.6),
+    'category': GenericSitemap(category_dict, priority=0.6),
+}
 
 urlpatterns = patterns('',
     # Examples:
@@ -28,13 +44,6 @@ urlpatterns = patterns('',
     # Comments
     url(r'^comments/', include('django.contrib.comments.urls')),
 
-    # # Categories
-    # url(r'^categories/?$', ListView.as_view(
-    #     model=Category,
-    #     )),
-    # url(r'^categories/(?P<categorySlug>\w+)/?$', 'blogengine.views.getCategory'),
-    # url(r'^categories/(?P<categorySlug>\w+)/(?P<selected_page>\d+)/?$', 'blogengine.views.getCategory'),
-
     # Categories
     url(r'^categories/?$', ListView.as_view(model=Category,)),
     url(r'^categories/(?P<categorySlug>\w+)/?$', 'blogengine.views.getCategory'),
@@ -42,6 +51,9 @@ urlpatterns = patterns('',
 
     # RSS feeds
     url(r'^feeds/posts/$', PostsFeed()),
+
+    # the sitemap
+    (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
     # Flat pages
     url(r'', include('django.contrib.flatpages.urls')),

@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.syndication',
     'fts',
+    'django.contrib.sitemaps',
 )
 
 # A sample logging configuration. The only tangible logging
