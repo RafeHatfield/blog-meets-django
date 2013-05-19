@@ -10,8 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Poiret+One|PT+Serif|Open+Sans:400,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Sarina|Oleo+Script+Swash+Caps|Merriweather+Sans:400,700|Berkshire+Swash' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Sarina|Poiret+One|PT+Serif|Open+Sans:400,300' rel='stylesheet' type='text/css'>
     {% load staticfiles %}
     <!-- Stylesheets -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -41,13 +40,13 @@ font-family: 'Berkshire Swash', cursive;
     <div class="masthead clearfix">
         <div style="font-family: Sarina; text-decoration: none; font-size: 40px; width:400px; display:inline; margin-top:20px; position: absolute">Rafe Hatfield</div>
         <ul id="nav" class="nav ww-nav pull-right hidden-phone">
-            <li class="active"><a href="/">Blog</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/categories/">Categories</a></li>
             {% load flatpages %}
             {% get_flatpages as flatpages %}
             {% for flatpage in flatpages %}
                 <li><a href="{{ flatpage.url }}">{{ flatpage.title }}</a></li>
             {% endfor %}
-            <li><a href="/categories/">Categories</a></li>
 <!--           <li class="active"><a href="blog.html">Blog</a></li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Features</a>
             <ul class="dropdown-menu">
@@ -59,7 +58,7 @@ font-family: 'Berkshire Swash', cursive;
             </ul>                
           </li>   --> 
           <li><a href="/contact/">Contact</a></li>
-          <li><a href="/feeds/posts/">RSS</a></li>
+          <li><a href="/feeds/posts/">Resume</a></li>
         </ul>
     </div>
 
