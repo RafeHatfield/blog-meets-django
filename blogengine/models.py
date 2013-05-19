@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Category(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=40, unique=True)
@@ -15,6 +16,7 @@ class Category(models.Model):
     def get_absolute_url(self):
         return "/categories/%s/" % self.slug
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField()
@@ -28,6 +30,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return "/%s/%s/%s/" % (self.pub_date.year, self.pub_date.month, self.slug)
+
 
 class CategoryToPost(models.Model):
     post = models.ForeignKey(Post)

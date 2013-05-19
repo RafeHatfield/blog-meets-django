@@ -27,11 +27,16 @@ urlpatterns = patterns('',
 
     # Comments
     url(r'^comments/', include('django.contrib.comments.urls')),
-    
+
+    # # Categories
+    # url(r'^categories/?$', ListView.as_view(
+    #     model=Category,
+    #     )),
+    # url(r'^categories/(?P<categorySlug>\w+)/?$', 'blogengine.views.getCategory'),
+    # url(r'^categories/(?P<categorySlug>\w+)/(?P<selected_page>\d+)/?$', 'blogengine.views.getCategory'),
+
     # Categories
-    url(r'^categories/?$', ListView.as_view(
-        model=Category,
-    )),
+    url(r'^categories/?$', ListView.as_view(model=Category,)),
     url(r'^categories/(?P<categorySlug>\w+)/?$', 'blogengine.views.getCategory'),
     url(r'^categories/(?P<categorySlug>\w+)/(?P<selected_page>\d+)/?$', 'blogengine.views.getCategory'),
 
