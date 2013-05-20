@@ -1,7 +1,7 @@
 {% include 'header.html' %}
 
     {% load comments %}
-    
+
     <div class="row main-content">
         <div class="offset1 span6 zone-content">
             {% if posts %}
@@ -17,7 +17,7 @@
                         <h3>Comments: {{ comment_count }}</h3></p>
                         <p class="tags">
                             <span>Tags:</span>
-                                <a href="#">Lorem</a>, <a href="#">Ipsum</a>, <a href="#">Linux</a>, <a href="#">Mac</a>, <a href="#">Wordpress</a>, <a href="#">Joomla</a>
+                            <a href="#">Tag1</a>, <a href="#">Tag2</a>, <a href="#">Tag3</a>, <a href="#">Tag4</a>
                         </p>
                     </article>
                 </li>
@@ -47,6 +47,7 @@
 
         </div>
 
+        {% include 'sidebar.html' %}
 
     </div>
 

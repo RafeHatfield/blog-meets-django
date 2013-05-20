@@ -41,7 +41,15 @@ font-family: 'Berkshire Swash', cursive;
         <div style="font-family: Sarina; text-decoration: none; font-size: 40px; width:400px; display:inline; margin-top:20px; position: absolute">Rafe Hatfield</div>
         <ul id="nav" class="nav ww-nav pull-right hidden-phone">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="/categories/">Categories</a></li>
+            <li class="dropdown"><a href="/categories/" class="dropdown-toggle" data-toggle="dropdown">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">IT & Development</a></li>
+                    <li><a href="#">Geekdom</a></li>
+                    <li><a href="#">Personal</a></li>
+                    <li><a href="#">Health</a></li>
+                    <li><a href="#">Random</a></li>
+                </ul>
+            </li>
             {% load flatpages %}
             {% get_flatpages as flatpages %}
             {% for flatpage in flatpages %}
@@ -57,8 +65,8 @@ font-family: 'Berkshire Swash', cursive;
                 <li><a href="colors.html">Colors</a></li>
             </ul>                
           </li>   --> 
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/feeds/posts/">Resume</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/feeds/posts/">Resume</a></li>
         </ul>
     </div>
 
