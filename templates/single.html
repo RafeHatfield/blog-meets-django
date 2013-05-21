@@ -19,7 +19,7 @@
             </article>
 
             <div class="clearfix"></div>
-
+<!-- 
             <div id="comments">
                {% get_comment_count for post as comment_count %}
                 <h2 class="comment-count">Comments: {{ comment_count }}</h2>
@@ -64,9 +64,13 @@
                     {% endfor %}     
                 </ul>
             </div>
+ -->
+            {% load disqus_tags %}
+            {% disqus_dev %}
+            {% disqus_show_comments %}
 
-            {% render_comment_form for post %}
-            {% endfor %}
+<!--             {% render_comment_form for post %}
+            {% endfor %} -->
 
         </div>
 

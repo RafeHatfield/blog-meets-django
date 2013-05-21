@@ -95,7 +95,7 @@ SECRET_KEY = 'iiob211u7m%j2mttc9it7u0g+*j&16))1y(ih^^!v1-%g6j2b%'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+#   'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -139,7 +139,11 @@ INSTALLED_APPS = (
     'django.contrib.syndication',
     'fts',
     'django.contrib.sitemaps',
+    'disqus',
 )
+
+DISQUS_API_KEY = 'dNvhfZ8kKvvo3EdJTqCwS7FMzA5VcoGyYETK2hdMpIkMF5lR7DlkhWgBjOYe6kkB'
+DISQUS_WEBSITE_SHORTNAME = 'rafesblog'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
