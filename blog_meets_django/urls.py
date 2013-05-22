@@ -55,6 +55,9 @@ urlpatterns = patterns('',
     # the sitemap
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
+    # google custom search
+    (r'^search/', include('googlesearch.urls')),
+
     # Flat pages
     url(r'', include('django.contrib.flatpages.urls')),
 )

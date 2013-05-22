@@ -1,0 +1,14 @@
+{% include 'header.html' %}
+
+    <div class="row main-content">
+        <div class="offset1 span6 zone-content">
+
+            {% block content %}{% endblock content %}
+
+        </div>
+
+        {% include 'sidebar.html' %}
+
+    </div>
+
+{% include 'footer.html' %}

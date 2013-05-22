@@ -1,0 +1,41 @@
+{% include 'header.html' %}
+    <div class="row main-content">
+        <div class="offset1 span6 zone-content">
+
+            {% load comments %}
+            {% for post in posts %}
+            <article>
+
+                <div class="published">{{ post.pub_date }}</div>
+                <h1>{{ post.title }}</h1>
+                <h3>Categories: {% for category in post.categories.all %} {{ category.title }} {% endfor %}</h3>
+                <div>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales cursus fringilla. 
+                    </p>
+                    <p>{{ post.text }}</p>
+
+                </div>
+            </article>
+
+            <div class="clearfix"></div>
+
+            <div id="comments">
+
+                <h2 class="comment-count">Comments:</h2>
+
+                {% load disqus_tags %}
+                {% disqus_dev %}
+                {% disqus_show_comments %}
+                
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% include 'sidebar.html' %}
+
+    </div>
+
+{% include 'footer.html' %}

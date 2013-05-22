@@ -1,54 +1,42 @@
-{% include 'header.html' %}
+{% extends "base.html" %}
 
-    {% load comments %}
+{% block content %}
+    {% if posts %}
+        <ul class="blog-posts">
 
-    <div class="row main-content">
-        <div class="offset1 span6 zone-content">
-            {% if posts %}
-            <ul class="blog-posts">
+            {% for post in posts %}
+            <li class="first">
+                <article class="blog-post">
+                    <div class="published">{{ post.pub_date }}</div>     
+                    <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+                    <p>{{ post.text }}&nbsp;… <a href="{{ post.get_absolute_url }}">more</a></p>
+                    <p class="tags">
+                        <span>Tags:</span>
+                        <a href="#">Tag1</a>, <a href="#">Tag2</a>, <a href="#">Tag3</a>, <a href="#">Tag4</a>
+                    </p>
+                </article>
+            </li>
+            {% endfor %}
 
-                {% for post in posts %}
-                <li class="first">
-                    <article class="blog-post">
-                        <div class="published">{{ post.pub_date }}</div>     
-                        <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-                        <p>{{ post.text }}&nbsp;… <a href="{{ post.get_absolute_url }}">more</a></p>
-                        <p>{% get_comment_count for post as comment_count %}
-                        <h3>Comments: {{ comment_count }}</h3></p>
-                        <p class="tags">
-                            <span>Tags:</span>
-                            <a href="#">Tag1</a>, <a href="#">Tag2</a>, <a href="#">Tag3</a>, <a href="#">Tag4</a>
-                        </p>
-                    </article>
-                </li>
-                {% endfor %}
+        </ul>
 
-            </ul>
+        <div class="blog-pagination">
 
-            <div class="blog-pagination">
+            {% if page.has_previous %}
+            <div class="newer">
+                <a href="/{{ page.previous_page_number }}/">« Newer posts</a>
+            </div> 
+            {% endif %}
 
-                {% if page.has_previous %}
-                <div class="newer">
-                    <a href="/{{ page.previous_page_number }}/">« Newer posts</a>
-                </div> 
-                {% endif %}
-
-                {% if page.has_next %}
-                <div class="older">
-                    <a href="/{{ page.next_page_number }}/">Older posts »</a>
-                </div>  
-                {% endif %}
-
-            </div>
-
-            {% else %}
-            <p>No posts matched</p>
+            {% if page.has_next %}
+            <div class="older">
+                <a href="/{{ page.next_page_number }}/">Older posts »</a>
+            </div>  
             {% endif %}
 
         </div>
 
-        {% include 'sidebar.html' %}
-
-    </div>
-
-{% include 'footer.html' %}
+    {% else %}
+        <p>No posts matched</p>
+    {% endif %}
+{% endblock content %}

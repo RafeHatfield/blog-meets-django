@@ -140,10 +140,33 @@ INSTALLED_APPS = (
     'fts',
     'django.contrib.sitemaps',
     'disqus',
+    'googlesearch',
 )
 
 DISQUS_API_KEY = 'dNvhfZ8kKvvo3EdJTqCwS7FMzA5VcoGyYETK2hdMpIkMF5lR7DlkhWgBjOYe6kkB'
 DISQUS_WEBSITE_SHORTNAME = 'rafesblog'
+
+GOOGLE_SEARCH_PARTNER_ID = '003483775300086933582:uah8u5vegnq'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+)
+
+# <script>
+#   (function() {
+#     var cx = '003483775300086933582:uah8u5vegnq';
+#     var gcse = document.createElement('script');
+#     gcse.type = 'text/javascript';
+#     gcse.async = true;
+#     gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+#         '//www.google.com/cse/cse.js?cx=' + cx;
+#     var s = document.getElementsByTagName('script')[0];
+#     s.parentNode.insertBefore(gcse, s);
+#   })();
+# </script>
+# <gcse:search></gcse:search>
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
