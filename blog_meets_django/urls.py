@@ -38,11 +38,13 @@ urlpatterns = patterns('',
     url(r'^$', 'blogengine.views.getPosts'),
     url(r'^(?P<selected_page>\d+)/?$', 'blogengine.views.getPosts'),
 
+    url(r'^search/?$', 'blogengine.views.googlesearch'),
+
     # Blog posts
     url(r'^\d{4}/\d{1,2}/(?P<postSlug>[-a-zA-Z0-9]+)/?$', 'blogengine.views.getPost'),
 
     # Comments
-    url(r'^comments/', include('django.contrib.comments.urls')),
+    # url(r'^comments/', include('django.contrib.comments.urls')),
 
     # Categories
     url(r'^categories/?$', ListView.as_view(model=Category,)),
@@ -56,7 +58,8 @@ urlpatterns = patterns('',
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
     # google custom search
-    (r'^search/', include('googlesearch.urls')),
+    # (r'^search/', include('googlesearch.urls')),
+
 
     # Flat pages
     url(r'', include('django.contrib.flatpages.urls')),

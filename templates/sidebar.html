@@ -3,17 +3,13 @@
 		<header>
     		<h1>Search</h1>
 	    </header>
-		<form action="#" class="search-form" method="get">    
+		<form action="/search/" class="search-form" method="get">    
 			<fieldset>
-		        <input id="q" name="q" type="text" value="" placeholder="I don't work yet!">
+		        <input id="gsc-i-id1" dir="ltr" name="q" title="search" type="text" value="" placeholder="" style="width:205px; margin-bottom: 0px">
 		        <button type="submit">Go</button>
 		    </fieldset>
 		</form>
 	</article>
-
-	{% load googlesearch_inclusion_tags %}
-
-	{% googlesearch_form %}
 
 	<article class="widget-tag-cloud widget">
 	    <header>

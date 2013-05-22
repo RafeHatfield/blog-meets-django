@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.contrib.syndication.views import Feed
 from django.contrib.flatpages.models import FlatPage
 
+
 def getPosts(request, selected_page=1):
     # Get all blog posts
     posts = Post.objects.all().order_by('-pub_date')
@@ -20,14 +21,16 @@ def getPosts(request, selected_page=1):
         returned_page = pages.page(pages.num_pages)
 
     # Display all the posts
-    return render_to_response('posts.html', { 'posts':returned_page.object_list, 'page':returned_page})
+    return render_to_response('posts.html', {'posts': returned_page.object_list, 'page': returned_page})
+
 
 def getPost(request, postSlug):
     # Get specified post
     post = Post.objects.filter(slug=postSlug)
 
     # Display specified post
-    return render_to_response('single.html', { 'posts':post}, context_instance=RequestContext(request))
+    return render_to_response('single.html', {'posts': post}, context_instance=RequestContext(request))
+
 
 def getCategory(request, categorySlug, selected_page=1):
     # Get specified category
@@ -50,10 +53,11 @@ def getCategory(request, categorySlug, selected_page=1):
         returned_page = pages.page(pages.num_pages)
 
     # Display all the posts
-    return render_to_response('category.html', { 'posts': returned_page.object_list, 'page': returned_page, 'category': category})
+    return render_to_response('category.html', {'posts': returned_page.object_list, 'page': returned_page, 'category': category})
+
 
 class PostsFeed(Feed):
-    
+
     title = "My Django Blog posts"
     link = "feeds/posts/"
     description = "Posts from My Django Blog"
@@ -66,3 +70,7 @@ class PostsFeed(Feed):
 
     def item_description(self, item):
         return item.text
+
+
+def googlesearch(request):
+    return render_to_response('search.html', {}, context_instance=RequestContext(request))

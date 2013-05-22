@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    Hiya!
+
+    {{ request.GET.q }}
+
+
+
+<script>
+  (function() {
+    var cx = '003483775300086933582:uah8u5vegnq';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchresults-only></gcse:searchresults-only>
+
+{% endblock content %}
